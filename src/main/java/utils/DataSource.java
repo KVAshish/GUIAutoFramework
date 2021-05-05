@@ -88,7 +88,7 @@ public class DataSource {
 			String dataFilePath = null;
 			Reader reader = null;
 			
-			dataFilePath = System.getProperty("user.dir") + File.separator + testDataFile + "_" + env + ".csv";
+			dataFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + testDataFile + "_" + env + ".csv";
 			
 			testDataRecordsMapDefault = new HashMap<String, CSVRecord>();
 			File filecheck = new File(dataFilePath);
