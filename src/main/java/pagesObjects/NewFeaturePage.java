@@ -3,7 +3,6 @@ package pagesObjects;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import stepsDefinitions.NewFeatureStepDefinition;
 import utils.SeleniumWrapper;
 

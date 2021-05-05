@@ -29,6 +29,8 @@ public class NewFeatureStepDefinition {
 			logger.debug("user Name is:: "+userName);
 			logger.debug("user Passowrd is:: "+password);
 			logger.debug("user clientId is:: "+clientId);
+			
+			DriverFactory.datasource.getDataInstance("testData.csv");
 		} catch (Exception e) {
 			Assert.fail("####Login Failed :::");
 		}

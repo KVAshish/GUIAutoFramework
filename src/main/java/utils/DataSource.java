@@ -41,7 +41,7 @@ public class DataSource {
 	 */
 	public String readPropertiesFileForCMD(String term) throws IOException {
 		prop = new Properties();
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\config.properties");
 		prop.load(fi);
 		if (prop.getProperty(term.toLowerCase()) == null) {
 			return "";
