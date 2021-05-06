@@ -23,7 +23,7 @@ public class NewFeatureStepDefinition {
 	public void user_Login_to_the_Appilcation(String data_Source) throws Throwable {
 		try {
 			System.out.println("Data Source Name is :::" +data_Source);
-			String username = DataSource.getData(data_Source, "name");
+			String username = DataSource.getDataCSV(data_Source, "name");
 			System.out.println("User Name is  :::" +username);
 			
 			String url = DriverFactory.datasource.readPropertiesFileForCMD("application_url");

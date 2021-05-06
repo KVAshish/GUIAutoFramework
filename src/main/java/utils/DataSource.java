@@ -75,7 +75,7 @@ public class DataSource {
 	 * @return
 	 * @throws IOException
 	 */
-	public static Map<String, CSVRecord> getDataInstance(String testDataFile) throws IOException{
+	public static Map<String, CSVRecord> getDataInstanceCSV(String testDataFile) throws IOException{
 		
 		if(testData.equals(testDataFile)) {
 			if(testDataRecordsMapDefault != null) {
@@ -154,8 +154,8 @@ public class DataSource {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String getData(String data_ref,String columnNames) throws IOException {
-		String columnValue = DataSource.getDataInstance(data_ref.split("\\.")[0]).get(data_ref.split("\\.")[1]).get(columnNames);
+	public static String getDataCSV(String data_ref,String columnNames) throws IOException {
+		String columnValue = DataSource.getDataInstanceCSV(data_ref.split("\\.")[0]).get(data_ref.split("\\.")[1]).get(columnNames);
 		return columnValue;
 	}
 }
