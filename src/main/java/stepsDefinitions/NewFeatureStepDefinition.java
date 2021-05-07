@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 
 import io.cucumber.java.en.Given;
 import pagesObjects.NewFeaturePage;
+import utils.DataSource;
 import utils.DriverFactory;
+import utils.SeleniumWrapper;
 
 public class NewFeatureStepDefinition {
 
@@ -17,9 +19,13 @@ public class NewFeatureStepDefinition {
 		newfeature_Page = new NewFeaturePage();
 	}
 
-	@Given("^User Login to the Appilcation$")
-	public void user_Login_to_the_Appilcation() throws Throwable {
+	@Given("User Login to the Appilcation {string}")
+	public void user_Login_to_the_Appilcation(String data_Source) throws Throwable {
 		try {
+			System.out.println("Data Source Name is :::" +data_Source);
+			String username = DataSource.getDataCSV(data_Source, "name");
+			System.out.println("User Name is  :::" +username);
+			
 			String url = DriverFactory.datasource.readPropertiesFileForCMD("application_url");
 			String userName = DriverFactory.datasource.readPropertiesFileForCMD("username");
 			String password = DriverFactory.datasource.readPropertiesFileForCMD("password");
@@ -29,6 +35,8 @@ public class NewFeatureStepDefinition {
 			logger.debug("user Name is:: "+userName);
 			logger.debug("user Passowrd is:: "+password);
 			logger.debug("user clientId is:: "+clientId);
+			SeleniumWrapper.driver.quit();
+			
 		} catch (Exception e) {
 			Assert.fail("####Login Failed :::");
 		}

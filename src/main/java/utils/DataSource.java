@@ -41,7 +41,7 @@ public class DataSource {
 	 */
 	public String readPropertiesFileForCMD(String term) throws IOException {
 		prop = new Properties();
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\config.properties");
 		prop.load(fi);
 		if (prop.getProperty(term.toLowerCase()) == null) {
 			return "";
@@ -75,7 +75,7 @@ public class DataSource {
 	 * @return
 	 * @throws IOException
 	 */
-	public static Map<String, CSVRecord> getDataInstance(String testDataFile) throws IOException{
+	public static Map<String, CSVRecord> getDataInstanceCSV(String testDataFile) throws IOException{
 		
 		if(testData.equals(testDataFile)) {
 			if(testDataRecordsMapDefault != null) {
@@ -88,7 +88,7 @@ public class DataSource {
 			String dataFilePath = null;
 			Reader reader = null;
 			
-			dataFilePath = System.getProperty("user.dir") + File.separator + testDataFile + "_" + env + ".csv";
+			dataFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + testDataFile + "_" + env + ".csv";
 			
 			testDataRecordsMapDefault = new HashMap<String, CSVRecord>();
 			File filecheck = new File(dataFilePath);
@@ -154,8 +154,8 @@ public class DataSource {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String getData(String data_ref,String columnNames) throws IOException {
-		String columnValue = DataSource.getDataInstance(data_ref.split("\\.")[0]).get(data_ref.split("\\.")[1]).get(columnNames);
+	public static String getDataCSV(String data_ref,String columnNames) throws IOException {
+		String columnValue = DataSource.getDataInstanceCSV(data_ref.split("\\.")[0]).get(data_ref.split("\\.")[1]).get(columnNames);
 		return columnValue;
 	}
 }
