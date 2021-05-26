@@ -17,7 +17,7 @@
 
 		<protocol>http</protocol>
 		<!-- title of the document -->
-		<documentTitle>Extent</documentTitle>
+		<documentTitle>AutomationRunReport</documentTitle>
 		<!-- report name - displayed at top-nav -->
 
 		<reportName>Cucumber Framework Automation Report</reportName>
